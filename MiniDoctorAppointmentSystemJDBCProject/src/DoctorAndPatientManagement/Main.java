@@ -9,11 +9,18 @@ public class Main {
 		Scanner input = new Scanner(System.in);
 		while (true) {
 			System.out.println("Doctor And Patient Management Syatem.");
+			System.out.println("--Doctors--");
 			System.out.println("1.Add Doctors");
 			System.out.println("2.View Doctors");
 			System.out.println("3.Update Doctors");
 			System.out.println("4.Delete Doctors");
 			System.out.println("5.Search Doctors");
+			System.out.println("--Patients--");
+			System.out.println("6.Add Patients");
+			System.out.println("7.View Patients");
+			System.out.println("8.Update Patients");
+			System.out.println("9.Delete Patients");
+			System.out.println("10.Search Patients");
 			int choice = input.nextInt();
 			switch (choice) {
 			case 1:
