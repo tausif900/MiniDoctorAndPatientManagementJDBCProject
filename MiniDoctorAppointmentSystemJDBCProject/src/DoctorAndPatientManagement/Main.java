@@ -14,7 +14,6 @@ public class Main {
 			System.out.println("3.Update Doctors");
 			System.out.println("4.Delete Doctors");
 			System.out.println("5.Search Doctors");
-			System.out.println("6.Exit");
 			int choice = input.nextInt();
 			switch (choice) {
 			case 1:
@@ -67,11 +66,12 @@ public class Main {
 				doctorDAO.deleteDoctor(id);
 				break;
 			case 5:
-				break;
-			case 6:
-				break;
+				System.out.println("Enter Doctor Id to search Doctor: ");
+				int sId = input.nextInt();
+				doctorDAO.searchDoctor(sId);
+				System.exit(0);
 			default:
-				break;
+				System.out.println("Invalid Operation");
 			}
 		}
 	}

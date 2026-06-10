@@ -31,6 +31,7 @@ public class DoctorDAO {
 			e.printStackTrace();
 		}
 	}
+
 //	View Doctor Method
 	public void viewDoctor() {
 		Connection connection = DBConnection.getConnection();
@@ -52,6 +53,7 @@ public class DoctorDAO {
 			e.printStackTrace();
 		}
 	}
+
 //	Update Doctor Method
 	public void updateDoctor(int doc_Id, Doctor doctor) {
 		Connection connection = DBConnection.getConnection();
@@ -74,6 +76,7 @@ public class DoctorDAO {
 			e.printStackTrace();
 		}
 	}
+
 //	Delete Doctor Method
 	public void deleteDoctor(int id) {
 		Connection connection = DBConnection.getConnection();
@@ -84,6 +87,25 @@ public class DoctorDAO {
 			int rows = ps.executeUpdate();
 			System.out.println("row deleted");
 			connection.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+//	Search Doctor Method
+	public void searchDoctor(int id) {
+		Connection connection = DBConnection.getConnection();
+		String query = "SELECT * FROM Doctor WHERE doc_id=?";
+
+		try {
+			PreparedStatement ps = connection.prepareStatement(query);
+			ps.setInt(1, id);
+			ResultSet resultSet = ps.executeQuery();
+			resultSet.next();
+			System.out.println("Name: " + resultSet.getString("doc_name"));
+			System.out.println("Specialization: " + resultSet.getString("specialization"));
+			System.out.println("Experience: " + resultSet.getString("experience"));
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
