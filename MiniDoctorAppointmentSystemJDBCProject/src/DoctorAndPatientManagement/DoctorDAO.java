@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DoctorDAO {
+//	Add Doctor Method.
 	public void addDoctor(Doctor doctor) {
 		Connection connection = DBConnection.getConnection();
 		String query = "INSERT INTO Doctor VALUES (?,?,?,?)";
@@ -30,7 +31,7 @@ public class DoctorDAO {
 			e.printStackTrace();
 		}
 	}
-
+//	View Doctor Method
 	public void viewDoctor() {
 		Connection connection = DBConnection.getConnection();
 		String query = "SELECT * FROM Doctor";
@@ -51,7 +52,7 @@ public class DoctorDAO {
 			e.printStackTrace();
 		}
 	}
-
+//	Update Doctor Method
 	public void updateDoctor(int doc_Id, Doctor doctor) {
 		Connection connection = DBConnection.getConnection();
 
@@ -73,7 +74,7 @@ public class DoctorDAO {
 			e.printStackTrace();
 		}
 	}
-
+//	Delete Doctor Method
 	public void deleteDoctor(int id) {
 		Connection connection = DBConnection.getConnection();
 		String query = "DELETE FROM Doctor WHERE doc_Id=?";
