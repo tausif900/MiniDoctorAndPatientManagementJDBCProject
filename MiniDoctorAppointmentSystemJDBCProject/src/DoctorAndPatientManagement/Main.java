@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Main {
 	public static void main(String[] args) {
 		DoctorDAO doctorDAO = new DoctorDAO();
+		PatientDAO patientDAO = new PatientDAO();
 
 		Scanner input = new Scanner(System.in);
 		while (true) {
@@ -41,12 +42,13 @@ public class Main {
 
 				Doctor doctor = new Doctor(doc_Id, doc_name, specialization, experience);
 				doctorDAO.addDoctor(doctor);
-
 				break;
+
 			case 2:
 //				View Doctors..........
 				doctorDAO.viewDoctor();
 				break;
+
 			case 3:
 //				Update Doctors..........
 				System.out.println("Enter Doctor Id to update: ");
@@ -66,17 +68,66 @@ public class Main {
 
 				System.out.println("Details Updated Successfully");
 				break;
+
 			case 4:
 //				Delete Doctors............
 				System.out.println("Enter Doctor Id to delete: ");
 				int id = input.nextInt();
 				doctorDAO.deleteDoctor(id);
 				break;
+
 			case 5:
 				System.out.println("Enter Doctor Id to search Doctor: ");
 				int sId = input.nextInt();
 				doctorDAO.searchDoctor(sId);
+				break;
+
+			case 6:
+				System.out.println("Enter Patients Details: ");
+
+				System.out.println("Enter Patient Id: ");
+				int patient_Id = input.nextInt();
+
+				System.out.println("Enter Patient name: ");
+				String patient_name = input.next();
+
+				System.out.println("Enter Age: ");
+				int age = input.nextInt();
+
+				Patient patient = new Patient(patient_Id, patient_name, age);
+
+				patientDAO.addPatient(patient);
+
+				System.out.println("Patient Added Successfully");
+				break;
+			case 7:
+				patientDAO.viewPatient();
+				break;
+
+			case 8:
+				System.out.println("Enter Patient Id to Update: ");
+				int p_Id = input.nextInt();
+
+				System.out.println("Enter age to update: ");
+				int p_age = input.nextInt();
+
+				patientDAO.updatePatient(p_Id, p_age);
+			case 9:
+				System.out.println("Enter Patient Id to delete: ");
+
+				int ID = input.nextInt();
+
+				patientDAO.deletePatient(ID);
+
+			case 10:
+				System.out.println("Enter Patient Id to search Patient: ");
+
+				int pid = input.nextInt();
+
+				patientDAO.searchPatient(pid);
+
 				System.exit(0);
+
 			default:
 				System.out.println("Invalid Operation");
 			}
